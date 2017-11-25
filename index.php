@@ -1,20 +1,12 @@
-
-
-
 <!DOCTYPE html>
 <html>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
 <head>
-
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 <div class="mainwrapper">
-<div class="block">
 
 <?php
 $servername = "localhost";
@@ -58,32 +50,37 @@ header("Location: " . $_SERVER['REQUEST_URI']);
 }
 }
 ?>
+	<div class="formContainer">
 
-<hr>
-<h1>Register</h1>
-<a href="login.php">login</a>
-<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-<label class="PS_select_label" id="PS_label" > User </label>
-<input class="PS_select_input" id="PS_input" name=" userName" type="text" value="" />
+		<h1>Create A New Account</h1>
 
-<label class="PS_select_label" id="PS_label" > password</label>
-<input class="PS_select_input" id="PS_input" name="password" type="password" value="" />
+		<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+				<p>
+					<label for="userName">Username</label>
+					<input class="textInput" id="userName" type="text" required />
+				</p>
+				<p>
+					<label for="password">Password</label>
+					<input class="textInput" id="password" type="password" required />
+				</p>
+				<p>
+					<label for="email">Email</label>
+					<input class="textInput" id="email" type="text" required />
+				</p>
+				<p>
+					<label for="therapist">Therapist</label>
+					<input class="textInput" id="therapist" type="text"/>
+				<p>
+				<br />
+				<input name = "addUser" type = "submit" id = "update" value = "Register" target="_SELF" >
+			
+		</form>
+		
+			<br /><br /><br /><br />
+			
+			Already Registered? <a href="login.php">Click Here</a>
+	</div>
 
-<label class="PS_select_label" id="PS_label" >email</label>
-<input class="PS_select_input" id="PS_input" name="email" type="text" value="email" />
-
-
-<label class="PS_select_label" id="PS_label" > Therapist</label>
-<input class="PS_select_input" id="PS_input" name=" therapist" type="text" value="Therapist" />
-
-
-<input name = "addUser" type = "submit" id = "update" value = "Insert User" target="_SELF" >
-
-</form>
-<hr> 
-<hr>
-
-</div>
  </div>
 </body>
 </html>					
