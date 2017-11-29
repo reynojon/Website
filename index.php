@@ -57,15 +57,15 @@ header("Location: " . $_SERVER['REQUEST_URI']);
 		<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
 				<p>
 					<label for="userName">Username</label>
-					<input class="textInput" id="userName" type="text" required />
+					<input class="PS_select_input" id="PS_input" name=" userName" type="text" value="" />
 				</p>
 				<p>
 					<label for="password">Password</label>
-					<input class="textInput" id="password" type="password" required />
+					<input class="PS_select_input" id="PS_input" name="password" type="password" value="" />
 				</p>
 				<p>
 					<label for="email">Email</label>
-					<input class="textInput" id="email" type="text" required />
+					<input class="PS_select_input" id="PS_input" name=" therapist" type="text" value="Therapist" />
 				</p>
 				<p>
 					<label for="therapist">Therapist</label>
