@@ -65,8 +65,7 @@ header("Location: " . $_SERVER['REQUEST_URI']);
 				</p>
 				<p>
 					<label for="email">Email</label>
-					<input class="PS_select_input" id="PS_input" name=" therapist" type="text" value="Therapist" />
-				</p>
+					<input class="PS_select_input" id="PS_input" name="email" type="text" value="email" />				</p>
 				<p>
 					<label for="therapist">Therapist</label>
 					<input class="textInput" id="therapist" type="text"/>
