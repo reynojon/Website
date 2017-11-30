@@ -12,7 +12,69 @@ if( !isset( $_SESSION['Stored_Username'] ) ) {
 
 ?>
 
+<?php
+session_start();
+if( !isset( $_SESSION['Stored_Username'] ) ) {
+ //  echo "Welcome". $_SESSION['Stored_Username']; 
+   header("Location: index.php");
+}
+ 
+?>
 
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+<div class="mainwrapper">
+<div class="block">
+
+<?php
+$servername = "localhost";
+$username = "khanshad_admin";
+$password = "Fd3=QL}TC^e@";
+$dbname = "khanshad_cs362";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+} 
+?>
+
+<?php
+$C_simname=$_SESSION['Stored_simname'];
+//echo $C_simname;
+$sql="SELECT * FROM simulations WHERE name LIKE '$C_simname' ";
+$result=mysqli_query($conn,$sql);
+if ($result->num_rows > 0) {
+    echo "<div class=\"navigation\" >\n";
+    
+    $row = $result->fetch_assoc();
+    
+	echo "<h2>Simulation: ". $_SESSION['Stored_simname'] . "</h2>\n"; 
+	echo "<div class=\"download\">";
+    echo "<a href='".$row['path']."'download>"."Download"."</a>\n"; // Write an anchor with the url as href, and text as value/content
+     
+  echo "</div>\n";
+  echo "<p>"."Download URL: ". $row["path"].  "</p>\n";
+  echo "</div>\n";
+  
+} else {
+    echo "0 results";
+}
+?>
+
+
+</div>
+</body>
+</html>	
 <!DOCTYPE html>
 <html>
 
@@ -47,32 +109,6 @@ if ($conn->connect_error) {
 
 <hr>
 
-<?php
-
-$C_simname=$_SESSION['Stored_simname'];
-echo $C_simname;
-$sql="SELECT * FROM simulations WHERE name LIKE '$C_simname' ";
-$result=mysqli_query($conn,$sql);
-if ($result->num_rows > 0) {
-    echo "<div class=\"navigation\" >";
-    echo "<div class=\"navitem\" id=\"brand\" >";
-    $row = $result->fetch_assoc();
-    
-  echo "Sim: ". $_SESSION['Stored_simname']; 
-  echo "</div>";
-     echo "<div class=\"navitem\" >";
-     echo "<a href='".$row['path']."'download>"."Download"."</a>"; // Write an anchor with the url as href, and text as value/content
-     
-  echo "</div>";
-  echo "<p>"."Username: ". $row["path"].  "</p>";
-  echo "<p>"."Therapist: ". $row["therapist"].  "</p>";
-  
-} else {
-    echo "0 results";
-}
-?>
-<hr> 
-<hr>
 
 </div>
  </div>

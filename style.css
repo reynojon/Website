@@ -22,14 +22,21 @@ input[type=submit]
 	border-radius: 10px;
 }
 
-form
+select
+{
+	font-size: 20px;
+	border-radius: 10px;
+}
+
+
+form, .download
 {
 	width: auto;
 	display: inline-block;
 	text-align: center;
 }
 
-.formContainer
+.formContainer, .navigation
 {
 	display: block;
 	text-align: center;
@@ -47,4 +54,22 @@ form p
 {
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+.logout
+{
+	position: absolute;
+}
+
+.logout, .download
+{
+	background-color: #EF7E56;
+	color: #F9F9F9;
+	padding: 5px 10px;
+	border-radius: 10px;
+}
+
+.logout a, .logout a:visited, .download a, .download a:visited
+{
+	color: #305973;
 }
