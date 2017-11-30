@@ -15,11 +15,18 @@ if( !isset( $_SESSION['Stored_Username'] ) ) {
 
 <!DOCTYPE html>
 <html>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 <head>
-	<link rel="stylesheet" href="./style.css">
+
 </head>
+
 <body>
 <div class="mainwrapper">
+<div class="block">
 
 <?php
 $servername = "localhost";
@@ -54,38 +61,47 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 $C_username=$_SESSION['Stored_Username'];
 $sql="SELECT * FROM User WHERE username LIKE '$C_username' ";
 $result=mysqli_query($conn,$sql);
-	if ($result->num_rows > 0) {
-		$row = $result->fetch_assoc();
-		echo "<div class=\"navigation\">\n";
-		echo "<div class=\"logout\">";
-		echo "<a href=\"logout.php\">Logout</a></div>\n";
-		echo "<p>Welcome: ". $row["username"] . "</p>\n"; 
-		echo "<p>Therapist: ". $row["therapist"]. "</p>\n"; 
-		echo "<hr>";
-		echo "</div>";
+if ($result->num_rows > 0) {
+    echo "<div class=\"navigation\" >";
+    echo "<div class=\"navitem\" id=\"brand\" >";
+  echo "Welcome: ". $_SESSION['Stored_Username']; 
+  echo "</div>";
+     echo "<div class=\"navitem\" >";
+  echo" <a href=\"logout.php\">Logout</a> ";
+  echo "</div>";
+  $row = $result->fetch_assoc();
+  echo "<p>"."Username: ". $row["username"].  "</p>";
+  echo "<p>"."Therapist: ". $row["therapist"].  "</p>";
+  
 } else {
     echo "0 results";
 }
 ?>
+<hr> 
+<hr>
 
-	<div class="formContainer">
-		<form name="frmUser" method="post" action="/cs362/profile.php" />
-				<p>
-					<h2>Choose A Simulation to Download</h2>
-				</p>
-				<p>
-					<select name="simname">
-					  <option value="One">Sim One</option>
-					  <option value="Two">Sim Two</option>
-					  <option value="Three">Sim Three</option>
-					  <option value="Four">Sim Four</option>
-					</select>
-				</p>
-				<br />
-				<input type="submit" name="submit" value="Download" />
-		</form>
-	</div>
-
+<form name="frmUser" method="post" action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"">
+<table border="0" cellpadding="10" cellspacing="1" width="500" align="center">
+<tr class="tableheader">
+<td align="center" colspan="2">Download SImulation</td>
+</tr>
+<tr class="tablerow">
+<td align="right">Username</td>
+<td>
+<select name="simname">
+  <option value="One">Sim One</option>
+  <option value="Two">Sim Two</option>
+  <option value="Three">Sim Three</option>
+  <option value="Four">Sim Four</option>
+</select>
+</td>
+</tr>
+<tr class="tableheader">
+<td align="center" colspan="2"><input type="submit" name="submit" value="Submit"></td>
+</tr>
+</table>
+</form>
+</div>
  </div>
 </body>
-</html>	
+</html>					

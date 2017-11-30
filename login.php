@@ -52,31 +52,27 @@ echo "Did not work '$count' ";
 
 <html>
 <head>
-	<title>User Login</title>
-	<link rel="stylesheet" href="./style.css">
+<title>User Login</title>
+
 </head>
 <body>
-<div class="mainwrapper">
-	<div class="formContainer">
-
-		<h1>Log In</h1>
-
-		<form name="frmUser" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-				<p>
-					<label for="username">Username</label>
-					<input class="textInput" name="username" type="text" required />
-				</p>
-				<p>
-					<label for="password">Password</label>
-					<input class="textInput" name="password" type="password" required />
-				</p>
-				<input name="submit" type = "submit" value="Submit" />
-		</form>
-		
-			<br /><br /><br /><br />
-			
-			Not Yet Registered? <a href="index.php">Click Here</a>
-	</div>
- </div>
-</body>
-</html>
+<h4><a href="index.php">register</a></h4>
+<form name="frmUser" method="post" action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"">
+<table border="0" cellpadding="10" cellspacing="1" width="500" align="center">
+<tr class="tableheader">
+<td align="center" colspan="2">Welcome To Our Project</td>
+</tr>
+<tr class="tablerow">
+<td align="right">Username</td>
+<td><input type="text" name="username"></td>
+</tr>
+<tr class="tablerow">
+<td align="right">Password</td>
+<td><input type="password" name="password"></td>
+</tr>
+<tr class="tableheader">
+<td align="center" colspan="2"><input type="submit" name="submit" value="Submit"></td>
+</tr>
+</table>
+</form>
+</body></html>
