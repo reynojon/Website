@@ -61,6 +61,10 @@ $result=mysqli_query($conn,$sql);
 	<div class="formContainer">
 		<form name="frmUser" method="post" action="/cs362/profile.php" />
 				<p>
+					<h2>Take Survey</h2>
+          <a href="http://khanshadid.com/cs362/survey.php">Click Here</a>
+				</p>
+				<p>
 					<h2>Choose A Simulation to Download</h2>
 				</p>
 				<p>
