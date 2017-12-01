@@ -51,7 +51,7 @@ $result=mysqli_query($conn,$sql);
 	<div class="formContainer">
 		<form name="frmUser" method="post" action="/cs362/profile.php" />
 				<p>
-					<h2>Take Self-Assessment</h2>
+					<h2>Please Identify Your Source of Trauma</h2>
           <a href="http://khanshadid.com/cs362/survey.php">Click Here</a>
 				</p>
 				<p>
