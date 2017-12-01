@@ -4,32 +4,15 @@
 <!DOCTYPE html>
 <html>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
 <head>
-
+<link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 <div class="mainwrapper">
-<div class="block">
 
 <?php
-$servername = "localhost";
-$username = "khanshad_admin";
-$password = "Fd3=QL}TC^e@";
-$dbname = "khanshad_cs362";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-} 
-
-
+require_once('./dbconn.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // collect value of input field
@@ -58,31 +41,31 @@ header("location: view-surveys.php");
 }
 ?>
 
-<hr>
-<h1>Survey</h1>
-<a href="http://khanshadid.com/cs362/">Home</a>
+	<div class="navigation" >
+		<div class="logout"><a href="profile.php">Home</a></div>
+	</div>
 
-<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-				<p>
-        <label for="name"  > What is Your Name?</label><br>
-        <input class="textInput" name="name" type="text"  />
-				</p>
-				<p>
-          <label for="email" >What is Your Age?</label><br>
-          <input class="textInput" name="age" type="text"   />			
-				<p>
-        <label for="trauma">What Kind of Trauma Did you Experience?</label><br>
-        <input class="PS_select_input" id="PS_input" name="trauma" type="text" />
-				<p>
-				<br />
-        <input name = "submitSurvey" type = "submit" id = "Submit" value = "Submit" target="_SELF" >
-        
+	<div class="formContainer">
+		<h1>Survey</h1>
+		<h4>Please tell us a little bit about yourself and the trauma which has affected your life.</h4>
+		<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+			<p class="wideInput">
+				<label for="name">Name:</label>
+				<input class="textInput" name="name" type="text" required />
+			</p>
+			<p class="wideInput">
+				<label for="email" >Age:</label>
+				<input class="textInput" name="age" type="text" required />
+			</p>
+			<p class="wideInput">
+				<label for="trauma">Trauma Experienced:</label>
+				<input class="textInput" name="trauma" type="text" required />
+			</p>
+			<p>
+				<input name = "submitSurvey" type = "submit" value="Submit" target="_SELF" >
+			</p>
 		</form>
-
-<hr> 
-<hr>
-
+	</div>
 </div>
- </div>
 </body>
-</html>					
+</html>				
