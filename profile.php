@@ -17,16 +17,8 @@ if( !isset( $_SESSION['Stored_Username'] ) ) {
 <div class="mainwrapper">
 
 <?php
-$servername = "localhost";
-$username = "khanshad_admin";
-$password = "Fd3=QL}TC^e@";
-$dbname = "khanshad_cs362";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-} 
+require_once('./dbconn.php');
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
   // username and password pulled from form
   $C_simname=$_REQUEST['simname'];
@@ -37,8 +29,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   
   }
 ?>
-
-<hr>
 
 <?php
 $C_username=$_SESSION['Stored_Username'];
@@ -61,7 +51,7 @@ $result=mysqli_query($conn,$sql);
 	<div class="formContainer">
 		<form name="frmUser" method="post" action="/cs362/profile.php" />
 				<p>
-					<h2>Take Survey</h2>
+					<h2>Please Identify Your Source of Trauma</h2>
           <a href="http://khanshadid.com/cs362/survey.php">Click Here</a>
 				</p>
 				<p>
