@@ -4,18 +4,8 @@ session_start(); // start up your PHP session!
 
 
 <?php
-	// header("Location: " . $_SERVER['REQUEST_URI']);
-  echo "Username= khan Password= 123 ";
-  $servername = "localhost";
-  $username = "khanshad_admin";
-  $password = "Fd3=QL}TC^e@";
-  $dbname = "khanshad_cs362";
-//connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Make sure of conn
-if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
-} 
+require_once('./dbconn.php');
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 // username and password pulled from form
 $C_username=$_REQUEST['username'];
