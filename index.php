@@ -9,16 +9,8 @@
 <div class="mainwrapper">
 
 <?php
-$servername = "localhost";
-$username = "khanshad_admin";
-$password = "Fd3=QL}TC^e@";
-$dbname = "khanshad_cs362";
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-} 
+require_once('./dbconn.php');
+	
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // collect value of input field
 $userName= $_REQUEST['userName'];
